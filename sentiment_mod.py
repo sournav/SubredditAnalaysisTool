@@ -62,7 +62,7 @@ short_neg_words=word_tokenize(short_neg)
 
 all_words=nltk.FreqDist(all_words)
 
-word_features=list(all_words.keys())[:2500]
+word_features=list(all_words.keys())[:5000]
 
 save_documents=open("pickled/word_features1k.pickle","wb")
 pickle.dump(word_features, save_documents)
@@ -77,8 +77,8 @@ def find_features(document):
 featuresets = [(find_features(rev),category) for (rev,category) in documents]
 random.shuffle(featuresets)
 #positive
-training_set = featuresets[:5000]
-testing_set = featuresets[5000:]
+training_set = featuresets[:10000]
+testing_set = featuresets[10000:]
 
 
 
